@@ -72,7 +72,7 @@ import { PlayerService } from './player.service'
 
 export class AppComponent implements OnInit{
   title = 'Movie Battle';
-  players = Player[];
+  players: Player[];
   selectedPlayer: Player;
 
   constructor(private playerService: PlayerService) {}

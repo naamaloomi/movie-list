@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { Player } from "./player";
+import { OnInit } from '@angular/core'
 
-const PLAYERS: Player[] = [
-  {id: 1, name: 'Martin Hong'},
-  {id: 2, name: 'Kristofer Sanchez'},
-  {id: 3, name: 'Mikael Rydin'}
-];
+import { Player } from './player';
+import { PlayerService } from './player.service'
 
 @Component({
     selector: 'my-app',
@@ -69,14 +66,25 @@ const PLAYERS: Player[] = [
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `]
-
+  `],
+  providers: [PlayerService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Movie Battle';
-  players = PLAYERS;
+  players = Player[];
   selectedPlayer: Player;
+
+  constructor(private playerService: PlayerService) {}
+
+  ngOnInit(): void {
+    this.getPlayers();
+  }
+
+  getPlayers(): void {
+    this.playerService.getPlayers().then(players => this.players = players);
+  }
+
   onSelect(player: Player): void {
     this.selectedPlayer = player;
   }

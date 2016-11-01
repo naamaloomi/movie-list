@@ -8,4 +8,10 @@ export class PlayerService{
   getPlayers(): Promise<Player[]> {
     return Promise.resolve(PLAYERS);
   }
+
+  getPlayersSlowly(): Promise<Player[]> {
+    return new Promise<Player[]>(resolve =>
+      setTimeout(resolve, 2000))
+      .then(() => this.getPlayers())
+  }
 }

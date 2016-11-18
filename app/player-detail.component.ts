@@ -27,4 +27,8 @@ export class PlayerDetailComponent implements OnInit{
         .then(player => this.player = player);
     });
   }
+
+  goBack(): void{
+    this.location.back();
+  }
 }

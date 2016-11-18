@@ -45,7 +45,6 @@ import { PlayerService } from './player.service'
     .players li:hover {
       color: #607D8B;
       background-color: #DDD;
-      left: .1em;
     }
     .players .text {
       position: relative;

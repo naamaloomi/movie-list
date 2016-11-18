@@ -6,17 +6,9 @@ import { Player } from "./player";
 import { PlayerService } from "./player.service";
 
 @Component({
+  moduleId: module.id,
   selector: 'my-player-detail',
-  template: `
-    <div *ngIf="player">
-      <h2>{{player.name}} details:</h2>
-      <div><label>id: </label>{{player.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="player.name" placeholder="name"/>
-      </div>
-    </div>
-  `
+  templateUrl: 'player-detail.component.html'
 })
 
 export class PlayerDetailComponent implements OnInit{

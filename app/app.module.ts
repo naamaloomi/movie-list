@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
-import { RouterModule}  from "@angular/router";
+import { RouterModule }  from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { PlayerDetailComponent } from './player-detail.component'
 import { PlayersComponent } from "./player.component";
 import { PlayerService } from "./player.service";
+import { DashboardComponent } from "./dashboard.component";
 
 @NgModule({
   imports: [
@@ -16,11 +17,16 @@ import { PlayerService } from "./player.service";
       {
         path: 'players',
         component: PlayersComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
       }
     ])
   ],
   declarations: [
     AppComponent,
+    DashboardComponent,
     PlayerDetailComponent,
     PlayersComponent
   ],
